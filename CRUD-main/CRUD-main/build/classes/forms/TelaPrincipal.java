@@ -4,61 +4,19 @@
  */
 package forms;
 
-import conexao.ServicoBancoFuncionario;
-import conexao.SimpleTableModel;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import util.Funcionario;
-
 /**
  *
  * @author supweb01
  */
 public class TelaPrincipal extends javax.swing.JFrame {
     
-    public Funcionario funcionario;
-    
     public TelaFuncionarios telaFuncionarios;
-    public TelaDepartamento telaDepartamento;
 
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
-    }
-    
-    
-    private void limparTela(){
-        
-        jTextField1.setText("");
-        jTextField1.requestFocus();
-        
-    }
-    
-    
-    public void carregarTebela() throws SQLException{
-    
-        ServicoBancoFuncionario srv =  new ServicoBancoFuncionario();
-        
-        
-        ArrayList dados = srv. getFuncionariobyQuery();
-        String [] colunas = new String[] {"ID do usuario",
-                                              "ID do Departamento",
-                                              "Nome",
-                                              "CPF",
-                                              "RG",
-                                              "Data de nascimento"
-                                              };
-        
-        SimpleTableModel modelo = new SimpleTableModel(dados, colunas); 
-            jTable1.setModel(modelo);
-            
-        
-            
-    
     }
 
     /**
@@ -71,7 +29,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jTextField1 = new javax.swing.JTextField();
-        btCarregar = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -82,31 +39,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowActivated(java.awt.event.WindowEvent evt) {
-                formWindowActivated(evt);
-            }
-        });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 12, 180, -1));
-
-        btCarregar.setText("Carregar");
-        btCarregar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btCarregarMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btCarregar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
+        getContentPane().setLayout(null);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(10, 12, 180, 20);
 
         jButton1.setText("Buscar Funcionarios");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, 160, -1));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(220, 10, 160, 23);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -121,10 +63,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 43, 580, 262));
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(10, 43, 375, 262);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/N07147_2_grande.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 370));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, 0, 400, 330);
 
         jMenu1.setText("Menu Cadastros");
 
@@ -150,17 +94,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4.setText("Departamentos");
 
         jMenuItem2.setText("Cadastro de departamentos");
-        jMenuItem2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem2MouseClicked(evt);
-            }
-        });
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
         jMenu4.add(jMenuItem2);
+
+        jMenuItem3.setText("Cadastro de serviços de departamentos");
+        jMenu4.add(jMenuItem3);
 
         jMenu1.add(jMenu4);
         jMenu4.getAccessibleContext().setAccessibleName("btMenuDepartamento");
@@ -169,10 +106,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        setBounds(0, 0, 617, 423);
+        setBounds(0, 0, 414, 388);
     }// </editor-fold>//GEN-END:initComponents
 
-   
+    
     
     
     
@@ -195,63 +132,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
            telaFuncionarios.setVisible(true);
         
     }//GEN-LAST:event_jMenuItem4ActionPerformed
-
-    private void jMenuItem2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem2MouseClicked
-       TelaDepartamento tf = new TelaDepartamento();
-        tf.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2MouseClicked
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        if (telaDepartamento == null){
-           
-           telaDepartamento = new TelaDepartamento();
-           
-           
-           }
-           
-           telaDepartamento.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        try {
-            this.carregarTebela();
-            if (funcionario == null)
-                btCarregar.setText("Carregar");
-            else
-                btCarregar.setText("Carregar");
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaFuncionarios.class.getName()).log(Level.SEVERE, null, ex);
-        }   
-    }//GEN-LAST:event_formWindowActivated
-
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        String nomeBusca = jTextField1.getText();
-        
-        ServicoBancoFuncionario srv = new ServicoBancoFuncionario();
-        
-        try {
-            ArrayList dados = srv.getBuscarFuncionario(nomeBusca);
-            String [] colunas = new String[] {"ID do usuario",
-                                              "ID do Departamento",
-                                              "Nome",
-                                              "CPF",
-                                              "RG",
-                                              "Data de nascimento"
-                                              };
-            SimpleTableModel modelo = new SimpleTableModel(dados, colunas); 
-            jTable1.setModel(modelo);
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1MouseClicked
-
-    private void btCarregarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btCarregarMouseClicked
-        try {
-            carregarTebela();
-        } catch (SQLException ex) {
-            Logger.getLogger(TelaPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btCarregarMouseClicked
 
     /**
      * @param args the command line arguments
@@ -292,7 +172,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btCarregar;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
@@ -300,6 +179,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;

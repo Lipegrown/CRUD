@@ -85,49 +85,16 @@ private final Conexao conexao = new Conexao();
         public ArrayList getFuncionariobyQuery()throws SQLException{
             ArrayList dados = new ArrayList();
             
-            
+            Util util = new Util();
             
             try(Statement st = conexao.getConexao().createStatement();
-                    ResultSet rs = st.executeQuery("select   funcionario.*  from funcionario")){
-                
-                while (rs.next()){
-          dados.add(new String [] { rs.getString(1),  
-                                    rs.getString(2), 
-                                    rs.getString(3), 
-                                    rs.getString(4), 
-                                    rs.getString(5), 
-                                    rs.getString(6) 
-                                   }); 
-        }
+                    ResultSet rs = st.executeQuery("select * funcionario")){
             
             }
             
             
             return dados;
         
-        }
-        
-        
-        public ArrayList getBuscarFuncionario(String a)throws SQLException{
-                   ArrayList dados = new ArrayList();
-        
-            try(Statement st = conexao.getConexao().createStatement();
-                     ResultSet rs = st.executeQuery("select   funcionario.*  from funcionario where nome =  \'"  + a + "\'"   )){
-                
-                while (rs.next()){
-          dados.add(new String [] { rs.getString(1),  
-                                    rs.getString(2), 
-                                    rs.getString(3), 
-                                    rs.getString(4), 
-                                    rs.getString(5), 
-                                    rs.getString(6) 
-                                   }); 
-        }
-            
-            }
-            
-            
-            return dados;
         }
 	
 	

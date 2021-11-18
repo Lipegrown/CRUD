@@ -17,16 +17,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         initComponents();
     }
 
-    private void limparTela(){
-        jComboBox1.setSelectedIndex(-1);
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField1.requestFocus();
-        btLimpar.setEnabled(false);
-    }
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,12 +33,10 @@ public class TelaFuncionarios extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        btLimpar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -56,42 +44,47 @@ public class TelaFuncionarios extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 204, 204));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 43, 114, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 68, 114, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 93, 114, -1));
-        getContentPane().add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 118, 114, -1));
+        getContentPane().setLayout(null);
+        getContentPane().add(jTextField1);
+        jTextField1.setBounds(134, 43, 114, 20);
+        getContentPane().add(jTextField2);
+        jTextField2.setBounds(134, 68, 114, 20);
+        getContentPane().add(jTextField3);
+        jTextField3.setBounds(134, 93, 114, 20);
+        getContentPane().add(jTextField4);
+        jTextField4.setBounds(134, 118, 114, 20);
 
         jLabel1.setText("Nome completo: ");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 46, 110, -1));
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(10, 46, 110, 14);
 
         jLabel2.setText("CPF:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 71, 31, -1));
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(10, 71, 31, 14);
 
         jLabel3.setText("RG:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 96, 31, -1));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("Cadastro de funcionarios");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(10, 96, 31, 14);
 
         jLabel4.setText("Data de nascimento:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 124, 120, -1));
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(10, 124, 120, 14);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(134, 148, 114, -1));
+        getContentPane().add(jComboBox1);
+        jComboBox1.setBounds(134, 148, 114, 20);
 
         jLabel5.setText("Departamento:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 151, 100, -1));
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(10, 151, 100, 14);
 
         jButton1.setText("Salvar");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 90, -1));
-
-        btLimpar.setText("Limpar");
-        getContentPane().add(btLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 190, 70, -1));
+        getContentPane().add(jButton1);
+        jButton1.setBounds(116, 185, 90, 23);
 
         jButton2.setText("Editar");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 90, -1));
+        getContentPane().add(jButton2);
+        jButton2.setBounds(224, 185, 90, 23);
 
         jButton3.setText("Cancelar");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,13 +92,16 @@ public class TelaFuncionarios extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(171, 257, 110, -1));
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 255, 31, -1));
+        getContentPane().add(jButton3);
+        jButton3.setBounds(171, 257, 110, 23);
+        getContentPane().add(jLabel6);
+        jLabel6.setBounds(73, 255, 31, 0);
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/N07147_2_grande.jpg"))); // NOI18N
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 560));
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(0, 0, 560, 560);
 
-        setBounds(0, 0, 412, 386);
+        setBounds(0, 0, 404, 386);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
@@ -148,7 +144,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btLimpar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -160,7 +155,6 @@ public class TelaFuncionarios extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
