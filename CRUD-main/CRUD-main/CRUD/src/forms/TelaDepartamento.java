@@ -5,6 +5,11 @@
  */
 package forms;
 
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author felipe.souza7
@@ -16,6 +21,30 @@ public class TelaDepartamento extends javax.swing.JFrame {
      */
     public TelaDepartamento() {
         initComponents();
+    }
+    
+    
+    public void carregarComboBoxDepartamento(){
+         try {
+            if (comboBoxDepartamento.getItemCount() > 0){
+               comboBoxDepartamento.removeAllItems();
+            }
+        
+          ArrayList<Usuario> lista = srvusu.getUsuarioByLista();
+          
+          for (Usuario u:lista){
+            comboBoxDepartamento.addItem(u);
+          }      
+        
+         
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(TelaDepartamento.class.getName()).log(Level.SEVERE, null, ex);
+          }        
+      
+    
+    
+    
     }
 
     /**
@@ -33,8 +62,9 @@ public class TelaDepartamento extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        comboBoxServico = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        comboBoxDepartamento = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -49,13 +79,16 @@ public class TelaDepartamento extends javax.swing.JFrame {
         jLabel3.setText("Nome do departamento:");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 120, -1));
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, 200, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 200, -1));
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 200, -1));
 
         jButton1.setText("jButton1");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
 
         jButton2.setText("jButton2");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 260, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 320, -1, -1));
+
+        comboBoxServico.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(comboBoxServico, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 240, -1));
 
         jButton3.setText("Sair");
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -63,19 +96,19 @@ public class TelaDepartamento extends javax.swing.JFrame {
                 jButton3MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 230, -1));
+        comboBoxDepartamento.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        getContentPane().add(comboBoxDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 230, -1));
 
         jLabel5.setText("Selecionar departamento");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 130, -1));
 
         jLabel4.setText("Serviço: ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 50, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 50, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/N07147_2_grande.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 412, 330));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 412, 370));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,10 +153,11 @@ public class TelaDepartamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboBoxDepartamento;
+    private javax.swing.JComboBox<String> comboBoxServico;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

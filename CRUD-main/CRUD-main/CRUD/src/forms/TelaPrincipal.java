@@ -232,7 +232,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         try {
             ArrayList dados = srv.getBuscarFuncionario(nomeBusca);
             String [] colunas = new String[] {"ID do usuario",
-                                              "ID do Departamento",
+                                              "Nome do Departamento",
                                               "Nome",
                                               "CPF",
                                               "RG",

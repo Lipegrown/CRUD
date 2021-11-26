@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import util.Departamento;
 
@@ -71,5 +72,20 @@ private final Conexao conexao = new Conexao();
 					            
 		}
 	}
+        
+        
+        public ArrayList<Departamento> getUsuarioByLista()throws SQLException{
+      ArrayList<Departamento> lista = new ArrayList<>();
+     try (Statement st = conexao.getConexao().createStatement(); 
+            ResultSet rs = st.executeQuery
+             ("select * from tusuario order by nome ")) {
+         
+        while (rs.next()){
+           lista.add(new Departamento(rs.getInt("codigo"), 
+                             rs.getString("nome"), 
+                             rs.getString("email"),
+                             rs.getString("fone")));
+        }
+    }
 
 }

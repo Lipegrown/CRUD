@@ -88,7 +88,7 @@ private final Conexao conexao = new Conexao();
             
             
             try(Statement st = conexao.getConexao().createStatement();
-                    ResultSet rs = st.executeQuery("select   funcionario.*  from funcionario")){
+                    ResultSet rs = st.executeQuery("select   f.idFuncionario, d.nomeDepartamento, f.nome, f.cpf, f.rg, f.dataNascimento  from funcionario f, departamento d")){
                 
                 while (rs.next()){
           dados.add(new String [] { rs.getString(1),  
@@ -112,7 +112,7 @@ private final Conexao conexao = new Conexao();
                    ArrayList dados = new ArrayList();
         
             try(Statement st = conexao.getConexao().createStatement();
-                     ResultSet rs = st.executeQuery("select   funcionario.*  from funcionario where nome =  \'"  + a + "\'"   )){
+                     ResultSet rs = st.executeQuery("select   f.idFuncionario, d.nomeDepartamento, f.nome, f.cpf, f.rg, f.dataNascimento  from funcionario f, departamento d where nome =  \'"  + a + "\'"   )){
                 
                 while (rs.next()){
           dados.add(new String [] { rs.getString(1),  
