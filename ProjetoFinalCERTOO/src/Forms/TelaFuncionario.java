@@ -321,18 +321,22 @@ public class TelaFuncionario extends javax.swing.JFrame {
        try {
         if (jComboFuncionario.getSelectedIndex() >= 0){ //alterar
             Funcionario funcionario = (Funcionario) jComboFuncionario.getSelectedItem();
-            funcionario.setIdDepartamento(Integer.parseInt(jCodigoDepartamento.getText()));
+            
             funcionario.setNome(jtNome.getText());
             funcionario.setCpf(jtCpf.getText());
             funcionario.setRg(jtRg.getText());
             funcionario.setDataNascimento(formato.parse(jtData.getText()));
+            funcionario.setIdDepartamento(Integer.parseInt(jCodigoDepartamento.getText()));
             srvFuc.update(funcionario);
+           
         }
         else { //gravar
                Funcionario funcionario = new Funcionario(Integer.parseInt(jCodigoDepartamento.getText()),jtNome.getText(), jtCpf.getText(), jtRg.getText(), formato.parse(jtData.getText()));
                srvFuc.insert(funcionario);
+               limparTela();
+               
              }
-          
+          limparTela();
         this.atualizarListaFuncionario();
           
         } catch (SQLException ex) {

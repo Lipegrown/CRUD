@@ -22,7 +22,7 @@ public class Conexao {
 	    
 	    try{
 	        Class.forName(DRIVER);
-	        connection = DriverManager.getConnection(URL, "root","123456");
+	        connection = DriverManager.getConnection(URL, "root","root");
 	        return connection;
 	    }catch(ClassNotFoundException e){
 	        JOptionPane.showMessageDialog(null, "Driver não encontrado: " + e.toString());

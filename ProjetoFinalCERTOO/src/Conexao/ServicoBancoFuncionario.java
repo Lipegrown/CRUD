@@ -3,6 +3,7 @@ package Conexao;
 import Classes.Funcionario;
 import com.mysql.cj.util.Util;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -17,8 +18,8 @@ public class ServicoBancoFuncionario {
 private final Conexao conexao = new Conexao();
 	
 	public void insert(Funcionario funcionario) throws SQLException{
-		Connection con = conexao.getConexao();
-		try(PreparedStatement pst = con.prepareStatement(
+		 
+		try(PreparedStatement pst = conexao.getConexao().prepareStatement(
 				"insert into funcionario (idFuncionario,departamento_idDepartamento1, nome, cpf, rg, dataNascimento)" + 
 		"values (0,?,?,?,?,?)")){
 			
@@ -36,14 +37,15 @@ private final Conexao conexao = new Conexao();
 	}
 	
 	public void update(Funcionario funcionario)throws SQLException {
-		Connection con = conexao.getConexao();
-		try(PreparedStatement pst = con.prepareStatement(
+		 
+		try(PreparedStatement pst = conexao.getConexao().prepareStatement(
 				"update funcionario set departamento_idDepartamento1 = ?, nome = ?, cpf = ?, rg = ?, dataNascimento = ? where (idFuncionario = ?)")){
 			pst.setInt(1, funcionario.getIdDepartamento());
 			pst.setString(2, funcionario.getNome());
 			pst.setString(3, funcionario.getCpf());
 			pst.setString(4, funcionario.getRg());
 			pst.setDate(5, new java.sql.Date(funcionario.getDataNascimento().getTime()));
+                        pst.setInt(6, funcionario.getId());
 			
 			pst.executeUpdate();
 		}

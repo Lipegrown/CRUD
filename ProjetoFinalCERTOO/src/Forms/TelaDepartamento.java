@@ -240,7 +240,8 @@ public class TelaDepartamento extends javax.swing.JFrame {
                Departamento departamento = new Departamento(jNomeDepartamento.getText());
                srvDep.insert(departamento);
              }
-          
+         
+        limparTela();
         this.atualizarListaDepartamento();
           
         } catch (SQLException ex) {

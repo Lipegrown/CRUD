@@ -9,13 +9,7 @@ public class Funcionario {
 	private int idDepartamento,id;
 
    
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    
 	
 	public Funcionario(int id, int idDepartamento, String nome, String cpf, String rg, Date dataNascimento) {
 		super();
@@ -24,6 +18,7 @@ public class Funcionario {
 		this.rg = rg;
 		this.dataNascimento = dataNascimento;
 		this.idDepartamento = idDepartamento;
+                this.id = id;
 	}
 
     public Funcionario(int idDepartamento, String nome, String cpf, String rg, Date dataNascimento) {
@@ -85,10 +80,16 @@ public class Funcionario {
 		return idDepartamento;
 	}
 
-	public void setIdDepartamento(int id) {
+	public void setIdDepartamento(int idDepartamento) {
 		this.idDepartamento = idDepartamento;
 	}
-	
+	public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 	
 	
 	

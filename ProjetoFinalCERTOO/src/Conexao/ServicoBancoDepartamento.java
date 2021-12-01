@@ -16,14 +16,11 @@ public class ServicoBancoDepartamento {
 private final Conexao conexao = new Conexao();
 	
 	public void insert(Departamento departamento) throws SQLException{
-		Connection con = conexao.getConexao();
-		try(PreparedStatement pst = con.prepareStatement(
+		try(PreparedStatement pst = conexao.getConexao().prepareStatement(
 				"insert into departamento(idDepartamento, nomeDepartamento)" + 
 		"values (0,?)")){
 			
 			pst.setString(1, departamento.getNomeDepartamento());
-			
-			
 			pst.executeUpdate();
 		}
 		conexao.close();
@@ -32,15 +29,16 @@ private final Conexao conexao = new Conexao();
 	}
 	
 	public void update(Departamento departamento)throws SQLException {
-		Connection con = conexao.getConexao();
-		try(PreparedStatement pst = con.prepareStatement("update departamento set idDepartamento = ?, nomeDepartamento = ? where (nomeDepartamento = ?)")){
-			pst.setString(1, departamento.getNomeDepartamento());
-			
-			
-			pst.executeUpdate();
-		}
-		conexao.close();
-	}
+            
+            try (PreparedStatement pst = conexao.getConexao().prepareStatement
+                ("update departamento set  nomeDepartamento = ? where (idDepartamento = ?)")) {
+        pst.setString(1, departamento.getNomeDepartamento());
+        pst.setInt(2, departamento.getId());
+        pst.executeUpdate();
+    }
+     conexao.close();
+		
+	} 
 	
 	public void delete (Departamento departamento) throws SQLException{
 		try(PreparedStatement pst = conexao.getConexao().prepareStatement(
