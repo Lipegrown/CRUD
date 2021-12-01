@@ -98,6 +98,7 @@ public class TelaDepartamento extends javax.swing.JFrame {
         btExcluir = new javax.swing.JButton();
         btSair = new javax.swing.JButton();
         btLimpar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -105,6 +106,7 @@ public class TelaDepartamento extends javax.swing.JFrame {
                 formWindowActivated(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new Departamento[] {dep}));
         jComboBox1.addItemListener(new java.awt.event.ItemListener() {
@@ -112,93 +114,56 @@ public class TelaDepartamento extends javax.swing.JFrame {
                 jComboBox1ItemStateChanged(evt);
             }
         });
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 48, 234, -1));
 
         jLabel1.setText("Cadastro Departamentos");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 11, -1, -1));
 
         jLabel2.setText("Selecionar Departamento");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 51, -1, -1));
+        getContentPane().add(jNomeDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 86, 234, -1));
 
         jLabel3.setText("Nome do Departamneto:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 89, -1, -1));
 
+        btSalvar.setBackground(new java.awt.Color(0, 255, 255));
         btSalvar.setText("Salvar");
         btSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSalvarMouseClicked(evt);
             }
         });
+        getContentPane().add(btSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(43, 120, -1, -1));
 
+        btExcluir.setBackground(new java.awt.Color(0, 255, 255));
         btExcluir.setText("Excluir");
         btExcluir.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btExcluirMouseClicked(evt);
             }
         });
+        getContentPane().add(btExcluir, new org.netbeans.lib.awtextra.AbsoluteConstraints(138, 120, -1, -1));
 
+        btSair.setBackground(new java.awt.Color(0, 255, 255));
         btSair.setText("Sair");
         btSair.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btSairMouseClicked(evt);
             }
         });
+        getContentPane().add(btSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 120, -1, -1));
 
+        btLimpar.setBackground(new java.awt.Color(0, 255, 255));
         btLimpar.setText("Limpar");
         btLimpar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btLimparMouseClicked(evt);
             }
         });
+        getContentPane().add(btLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(219, 120, -1, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(30, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jNomeDepartamento)
-                            .addComponent(jComboBox1, 0, 234, Short.MAX_VALUE))
-                        .addGap(44, 44, 44))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(btSalvar)
-                        .addGap(32, 32, 32)
-                        .addComponent(btExcluir)
-                        .addGap(18, 18, 18)
-                        .addComponent(btLimpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                        .addComponent(btSair)
-                        .addGap(70, 70, 70))))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(156, 156, 156)
-                .addComponent(jLabel1)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jNomeDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btSalvar)
-                    .addComponent(btExcluir)
-                    .addComponent(btSair)
-                    .addComponent(btLimpar))
-                .addGap(23, 23, 23))
-        );
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/Degrade-Radial-1024x576.jpg"))); // NOI18N
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-260, -60, 770, 230));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -318,6 +283,7 @@ public class TelaDepartamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jNomeDepartamento;
     // End of variables declaration//GEN-END:variables
 }
